@@ -9,19 +9,19 @@
 import UIKit
 
 open class ENSideMenuNavigationController: UINavigationController, ENSideMenuProtocol {
-
+    
     open var sideMenu : ENSideMenu?
     open var sideMenuAnimationType : ENSideMenuAnimation = .default
-
-
+    
+    
     // MARK: - Life cycle
     open override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     public init( menuViewController: UIViewController, contentViewController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
-
+        
         if (contentViewController != nil) {
             self.viewControllers = [contentViewController!]
         }
@@ -33,12 +33,12 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Navigation
     open func setContentViewController(_ contentViewController: UIViewController) {
         self.sideMenu?.toggleMenu()
@@ -51,7 +51,7 @@ open class ENSideMenuNavigationController: UINavigationController, ENSideMenuPro
             self.setViewControllers([contentViewController], animated: true)
             break
         }
-
+        
     }
 
 }
